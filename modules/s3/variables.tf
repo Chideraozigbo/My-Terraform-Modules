@@ -1,5 +1,5 @@
 variable "bucket_name" {
-  description = "List of bucket names to create"
+  description = "bucket name to create"
   type        = string
 }
 
