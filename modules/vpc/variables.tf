@@ -19,3 +19,20 @@ variable "create_igw" {
   type        = bool
   default     = false
 }
+
+variable "enable_dns_support" {
+  type    = bool
+  default = true
+}
+
+variable "enable_dns_hostnames" {
+  type    = bool
+  default = true
+}
+
+variable "instance_tenancy" {
+  type        = string
+  default     = "default"
+  description = "The allowed tenancy of instances launched into the VPC"
+}
+
