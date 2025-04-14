@@ -1,9 +1,9 @@
-output "bucket_ids" {
+output "bucket_id" {
   description = "Map of bucket names to bucket IDs"
-  value       = { for k, v in aws_s3_bucket.buckets : k => v.id }
+  value       = aws_s3_bucket.bucket.id
 }
 
-output "bucket_arns" {
+output "bucket_arn" {
   description = "Map of bucket names to bucket ARNs"
-  value       = { for k, v in aws_s3_bucket.buckets : k => v.arn }
+  value       = aws_s3_bucket.bucket.arn
 }

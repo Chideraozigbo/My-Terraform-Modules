@@ -1,19 +1,17 @@
-resource "aws_s3_bucket" "buckets" {
-  for_each = toset(var.bucket_names)
+resource "aws_s3_bucket" "bucket" {
   
-  bucket = each.key
+  bucket = var.bucket_name
   tags = merge(
     var.tags,
     {
-      Name = var.bucket_names[each.key]
+      Name = var.bucket_name
     }
   )
 }
 
 resource "aws_s3_bucket_versioning" "bucket_versioning" {
-  for_each = toset(var.bucket_names)
   
-  bucket = aws_s3_bucket.buckets[each.key].id
+  bucket = aws_s3_bucket.buckets.id
   
   versioning_configuration {
     status = var.enable_versioning ? "Enabled" : "Suspended"

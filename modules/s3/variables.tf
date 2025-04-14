@@ -1,7 +1,6 @@
-variable "bucket_names" {
+variable "bucket_name" {
   description = "List of bucket names to create"
-  type        = list(string)
-  default     = []
+  type        = string
 }
 
 variable "enable_versioning" {
